@@ -13,10 +13,10 @@ function Euler
    h = [0.5, 0.2, 0.1];
    x(1) = x0;
    y(1) = y0;
-   for i = 1:length(h)
-       x = x0:h(i):xmax;
-       for k = 1:(length(x) - 1)
-           y(k+1) = y(k) + (y(k)*tan(x(k)) + (cos(x(k)))^2)*h(i);
+   for k=1:length(h)
+       x=x0:h(k):xmax;
+       for j= 1:length(x)-1
+           y(j+1)=y(j)+h(k)*(cos(x(j))^2-y(j)*tan(x(j)));
        end
        plot(x,y);
    end
